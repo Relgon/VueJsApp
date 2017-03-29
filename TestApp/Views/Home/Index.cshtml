@@ -1,0 +1,40 @@
+﻿<!--<script type="text/x-template" id="details-template">
+	<transition name="detailsDisplay">
+		<div class="details-mask">
+			<div class="details-header">
+				<slot name="header">
+				</slot>
+			</div>
+			<div class="details-body">
+				<slot name="body">
+				</slot>
+			</div>
+			<div class="modal-footer">
+				<slot name="footer">
+					<button class="modal-default-button" @@click="$emit('close')">
+						OK
+					</button>
+				</slot>
+			</div>
+		</div>
+	</transition>
+</script>
+
+
+<div id="app" class="col-mg-12">
+	<div class="list-group col-mg-4">
+		<div v-for="todo in todos" class="list-group-item" @@click="togleShowDetails(todo.id,true)">
+			{{todo.title}}
+			<detailsDisplay v-if="todo.showDetails">
+				<h3 slot="header">{{todo.title}}</h3>
+				<h3 slot="body">{{todo.content}}</h3>
+			</detailsDisplay>
+		</div>
+	</div>
+</div>
+ @*@@close="showDetails(todo.id) = false"*@-->
+ <div class="row">
+  <div id="app">
+	  {{ message }}
+  </div>
+ </div>
