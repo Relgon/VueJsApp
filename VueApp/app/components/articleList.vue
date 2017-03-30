@@ -1,11 +1,12 @@
 <template>
     <div id="articleList">
-        <div class = "list-group" v-for="article in articles">
-            <div class = "list-group-item" v-on:click="toggleDetails(article.id)">
+        <div class = "list-group">
+            <div class = "list-group-item"  v-for="article in articles">
+                <div class ="list-group-item-header" v-on:click="toggleDetails(article.id)">
+                     <span>{{ article.title }}</span>
+                     <span class="list-group-item-right">{{ article.id }}</span>
+                </div>
                 <articleDetails v-show="showDetails(article.id)" :article="article"></articleDetails>
-                <span>{{ article.title }}</span>
-                <span class="right-item">{{ article.id }}</span>
-                
             </div>
         </div>
     </div>
@@ -18,17 +19,12 @@
         props : ['articles'],
         methods : {
             showDetails(id) {
-                const article = this.articles.filter(article => {
-                    return article.Id == id;
-                });
+                const article = this.articles.find(article => article.id ==id);
                 return article.showDetails;
             },
             toggleDetails(id) {
-                const article = this.articles.filter(article =>{
-                    return article.id == id;
-                });
-                article.id = !article.id;
-                console.log(article);
+                const article = this.articles.find(article => article.id == id);
+                article.showDetails = !article.showDetails;
             }
         },
         components : {
@@ -38,7 +34,11 @@
 </script>
 
 <style scoped> 
-    .right-item {
+    .list-group-item-right {
         float: right;
+    }
+
+    .list-group-item-header {
+        font-weight: bold;
     }
 </style>

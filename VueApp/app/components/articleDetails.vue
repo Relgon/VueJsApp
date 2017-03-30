@@ -1,6 +1,6 @@
 <template>
-    <div id="articleDetails">
-        SOME TEXT
+    <div id="articleDetails" class="list-item-details">
+        <span>{{ article.text }}</span>
     </div>
 </template>
 
@@ -9,3 +9,10 @@
         props : ['article']
     }
 </script>
+
+<style sroped>
+    .list-item-details {
+        margin-top:20px;
+        margin-bottom: 0xp;
+    }
+</style>
